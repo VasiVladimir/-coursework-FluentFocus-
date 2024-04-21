@@ -32,18 +32,16 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.io.ByteArrayOutputStream;
 import java.util.Arrays;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST = 1;
 
     private ImageView imageViewAvatar;
-    private TextView textViewNickname,lecred, Taskcompled;
+    private TextView textViewNickname, lecred, Taskcompled;
 
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
     private StorageReference mStorage;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,28 +54,22 @@ public class MainActivity extends AppCompatActivity  {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         bottomNavigationView.setSelectedItemId(R.id.menu_profile);
-        bottomNavigationView.setSelectedItemId(R.id.menu_lectures);
-        bottomNavigationView.setSelectedItemId(R.id.menu_leson);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
-
             int itemid = item.getItemId();
-
-            if (itemid == R.id.menu_profile){
+            if (itemid == R.id.menu_profile) {
                 return true;
-            }else if (itemid == R.id.menu_lectures){
+            } else if (itemid == R.id.menu_lectures) {
                 startActivity(new Intent(MainActivity.this, Setings.class));
-                overridePendingTransition(R.anim.slied_in_left,R.anim.slide_out_right);
+                overridePendingTransition(R.anim.slied_in_left, R.anim.slide_out_right);
                 return true;
-            }else if (itemid == R.id.menu_leson) {
+            } else if (itemid == R.id.menu_leson) {
                 startActivity(new Intent(MainActivity.this, Leson.class));
-                overridePendingTransition(R.anim.slied_in_left,R.anim.slide_out_right);
+                overridePendingTransition(R.anim.slied_in_left, R.anim.slide_out_right);
                 return true;
             }
             return false;
         });
-
-
 
         imageViewAvatar = findViewById(R.id.imageViewAvatar);
         textViewNickname = findViewById(R.id.textViewNickname);
@@ -87,11 +79,13 @@ public class MainActivity extends AppCompatActivity  {
         Button buttonSelectImage = findViewById(R.id.buttonSelectImage);
         buttonSelectImage.setOnClickListener(v -> openGallery());
 
+        Button buttonLogout = findViewById(R.id.buttonLogout);
+        buttonLogout.setOnClickListener(v -> logout());
+
         loadNickname();
         loadAvatar();
         countReadLectures();
         countCompletedTasks();
-
     }
 
     private void countReadLectures() {
@@ -120,6 +114,7 @@ public class MainActivity extends AppCompatActivity  {
             });
         }
     }
+
     private void countCompletedTasks() {
         DatabaseReference userLecturesRef = FirebaseDatabase.getInstance().getReference()
                 .child("lectures").child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
@@ -144,9 +139,6 @@ public class MainActivity extends AppCompatActivity  {
             }
         });
     }
-
-
-
 
     private void loadNickname() {
         FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -247,4 +239,9 @@ public class MainActivity extends AppCompatActivity  {
         }
     }
 
+    private void logout() {
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(MainActivity.this, Authorization.class));
+        finish(); // Закрываем текущую активность
+    }
 }

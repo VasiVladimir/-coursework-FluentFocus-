@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E3D386"
     tools:context=".Setings">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,7 +24,7 @@
             android:id="@+id/imageButton3"
             android:layout_width="102dp"
             android:layout_height="104dp"
-            android:background="#FFFFFF"
+            android:background="#F1E8BB"
             android:src="@drawable/image3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageButton2"
@@ -33,7 +34,7 @@
             android:id="@+id/imageButton1"
             android:layout_width="102dp"
             android:layout_height="104dp"
-            android:background="#FFFFFF"
+            android:background="#F1E8BB"
             android:src="@drawable/image1"
             app:layout_constraintEnd_toStartOf="@+id/imageButton2"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +44,7 @@
             android:id="@+id/imageButton2"
             android:layout_width="104dp"
             android:layout_height="104dp"
-            android:background="#FFFFFF"
+            android:background="#F1E8BB"
             android:src="@drawable/image2"
             app:layout_constraintEnd_toStartOf="@+id/imageButton3"
             app:layout_constraintStart_toEndOf="@+id/imageButton1"
@@ -53,7 +54,7 @@
             android:id="@+id/imageButton5"
             android:layout_width="102dp"
             android:layout_height="104dp"
-            android:background="#FFFFFF"
+            android:background="#F1E8BB"
             android:src="@drawable/image5"
             app:layout_constraintEnd_toStartOf="@+id/imageButton6"
             app:layout_constraintStart_toEndOf="@+id/imageButton4"
@@ -63,7 +64,7 @@
             android:id="@+id/imageButton6"
             android:layout_width="102dp"
             android:layout_height="104dp"
-            android:background="#FFFFFF"
+            android:background="#F1E8BB"
             android:src="@drawable/image6"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageButton5"
@@ -73,7 +74,7 @@
             android:id="@+id/imageButton4"
             android:layout_width="102dp"
             android:layout_height="104dp"
-            android:background="#FFFFFF"
+            android:background="#F1E8BB"
             android:src="@drawable/image4"
             app:layout_constraintEnd_toStartOf="@+id/imageButton5"
             app:layout_constraintStart_toStartOf="parent"
@@ -85,6 +86,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:menu="@menu/bottom_navigation_menu"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:background="#F1E8BB"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_navigation_menu" />
 </androidx.constraintlayout.widget.ConstraintLayout>

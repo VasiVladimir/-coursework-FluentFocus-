@@ -3,15 +3,15 @@
     <item
         android:id="@+id/menu_profile"
         android:title="Профиль"
-        android:icon="@drawable/ic_profile" />
+        android:icon="@drawable/account_avatar_face_man_people_profile_user_icon_123197" />
 
     <item
         android:id="@+id/menu_leson"
         android:title="Занятия"
-        android:icon="@drawable/textbook_icon_150959" />
+        android:icon="@drawable/textbook_svgrepo_com"/>
     <item
         android:id="@+id/menu_lectures"
         android:title="лекция"
-        android:icon="@drawable/textbook_icon_150959" />
+        android:icon="@drawable/talk_svgrepo_com" />
 
 </menu>

@@ -2,6 +2,7 @@ package com.example.coursework;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,24 +41,31 @@ public class Register extends AppCompatActivity {
                 String password = editTextPassword.getText().toString().trim();
                 String nickname = editTextNickname.getText().toString().trim();
 
-                mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(Register.this, task -> {
-                            if (task.isSuccessful()) {
-                                FirebaseUser user = mAuth.getCurrentUser();
-                                if (user != null) {
+                // Проверяем, что все поля заполнены
+                if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(nickname)) {
+                    // Если хотя бы одно из полей пустое, показываем сообщение об ошибке
+                    Toast.makeText(Register.this, "Заполните все поля", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Все поля заполнены, пытаемся зарегистрировать пользователя
+                    mAuth.createUserWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(Register.this, task -> {
+                                if (task.isSuccessful()) {
+                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    if (user != null) {
+                                        // После успешной регистрации добавляем данные пользователя в базу данных
+                                        mDatabase.child("users").child(user.getUid()).child("nickname").setValue(nickname);
+                                    }
 
-                                    mDatabase.child("users").child(user.getUid()).child("nickname").setValue(nickname);
+                                    // Перенаправляем пользователя на экран авторизации
+                                    startActivity(new Intent(Register.this, Authorization.class));
+                                    overridePendingTransition(R.anim.slied_in_left, R.anim.slide_out_right);
+                                    finish();
+                                } else {
+                                    // В случае ошибки выводим сообщение об ошибке
+                                    Toast.makeText(Register.this, "Ошибка регистрации.", Toast.LENGTH_SHORT).show();
                                 }
-
-                                startActivity(new Intent(Register.this, Authorization.class));
-                                overridePendingTransition(R.anim.slied_in_left,R.anim.slide_out_right);
-                                finish();
-                            } else {
-                                
-                                Toast.makeText(Register.this, "Ошибка регистрации.",
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                            });
+                }
             }
         });
     }
