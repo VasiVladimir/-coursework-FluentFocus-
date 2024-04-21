@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Пустой TextView -->
+    <TextView
+        android:id="@+id/textViewLectures"
+        android:layout_width="406dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:text="Артикль— это особое служебное слово в английском языке, которое ставится или непосредственно перед существительным, или перед определяющим это существительное прилагательным. Артикли позволяют отличать существительное от других частей речи, но сами самостоятельной частью речи не являются.\nЗадача артикля — указать на степень определенности предмета в данном контексте или в общем. В английском языке существуют два артикля – неопределенный(a/an) и определённый(the) В русском языке они, как служебные слова, отсутствуют и с английского не переводятся, но иногда могут встречаться во фразах типа: «Я знаю одну девочку. Эта девочка учится в нашей школе.» Или: «Один мальчик очень любил читать. Нашел этот мальчик однажды одну очень интересную книгу…».\nПоэтому на интуитивном уровне порой мы также употребляем слова «один/ одна/ одно/ одни», когда первый раз упоминаем о предмете, и «этот/ эта/ это/ эти» при повторном его использовании в речи."
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
