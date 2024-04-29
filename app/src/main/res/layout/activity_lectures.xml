@@ -5,18 +5,22 @@
     android:background="#FFFFFF">
 
     <ScrollView
-        android:layout_width="378dp"
-        android:layout_height="709dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="17dp"
+        android:layout_marginEnd="1dp"
         android:layout_marginBottom="8dp">
 
-        <!-- Пустой TextView -->
+        <!-- TextView с внутренними отступами -->
         <TextView
             android:id="@+id/textViewLectures"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:text=""
             android:textSize="18sp"
             android:textStyle="bold" />
