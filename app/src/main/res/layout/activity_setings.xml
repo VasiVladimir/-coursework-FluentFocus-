@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E3D386"
-    tools:context=".Setings">
+    tools:context=".lecturesRead">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="306dp"

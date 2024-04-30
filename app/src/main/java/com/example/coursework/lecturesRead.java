@@ -4,17 +4,13 @@ import  android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Setings extends AppCompatActivity {
+public class lecturesRead extends AppCompatActivity {
     private DatabaseReference lecturesRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +27,13 @@ public class Setings extends AppCompatActivity {
             int itemid = item.getItemId();
 
             if (itemid == R.id.menu_profile){
-                startActivity(new Intent(Setings.this, MainActivity.class));
+                startActivity(new Intent(lecturesRead.this, MainActivity.class));
                 overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
                 return true;
             }else if (itemid == R.id.menu_lectures){
                 return true;
             }else if (itemid == R.id.menu_leson) {
-                startActivity(new Intent(Setings.this, Leson.class));
+                startActivity(new Intent(lecturesRead.this, Leson.class));
                 overridePendingTransition(R.anim.slied_in_left,R.anim.slide_out_right);
                 return true;
             }
@@ -66,7 +62,7 @@ public class Setings extends AppCompatActivity {
 
     private void openLecture(String lectureKey) {
         // Запускаем ActivityLectures и передаем ключ лекции
-        Intent intent = new Intent(Setings.this, lectures.class);
+        Intent intent = new Intent(lecturesRead.this, lectures.class);
         intent.putExtra("lectureKey", lectureKey);
         startActivity(intent);
     }

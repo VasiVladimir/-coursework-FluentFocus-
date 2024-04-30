@@ -39,7 +39,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".Setings"
+            android:name=".lecturesRead"
             android:screenOrientation="portrait"
 
             android:exported="false" />

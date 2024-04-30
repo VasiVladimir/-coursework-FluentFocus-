@@ -39,7 +39,7 @@ public class Leson extends AppCompatActivity {
                 startActivity(new Intent(Leson.this, MainActivity.class));
                 overridePendingTransition(R.anim.slied_in_left,R.anim.slide_out_right);
             }else if (itemid == R.id.menu_lectures){
-                startActivity(new Intent(Leson.this, Setings.class));
+                startActivity(new Intent(Leson.this, lecturesRead.class));
                 overridePendingTransition(R.anim.slied_in_left,R.anim.slide_out_right);
                 return true;
             }else if (itemid == R.id.menu_leson) {

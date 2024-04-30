@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -25,12 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 import com.bumptech.glide.Glide;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.io.ByteArrayOutputStream;
-import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -60,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             if (itemid == R.id.menu_profile) {
                 return true;
             } else if (itemid == R.id.menu_lectures) {
-                startActivity(new Intent(MainActivity.this, Setings.class));
+                startActivity(new Intent(MainActivity.this, lecturesRead.class));
                 overridePendingTransition(R.anim.slied_in_left, R.anim.slide_out_right);
                 return true;
             } else if (itemid == R.id.menu_leson) {
